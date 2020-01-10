@@ -17,12 +17,18 @@ class ValidateSchemaSpec extends Specification {
     ObjectMapper mapper = new ObjectMapper(new YAMLFactory())
 
     @Shared
-    JsonSchemaFactory factory = JsonSchemaFactory.builder(JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7)).objectMapper(mapper).build()
+    JsonSchemaFactory factory = JsonSchemaFactory.builder(
+        JsonSchemaFactory.getInstance(SpecVersion.VersionFlag.V7)
+    )
+    .objectMapper(mapper)
+    .build()
 
     @Unroll("Validating yaml schema for #file")
     void "validate all items in configs directory against schema"(){
         given:
-        Set invalidMessages = factory.getSchema(SCHEMA_FILE.text).validate(mapper.readTree(file.text)).message
+        Set invalidMessages = factory.getSchema(SCHEMA_FILE.text)
+            .validate(mapper.readTree(file.text))
+            .message
 
         if(!invalidMessages.empty){
             println "Schema validation failed: ${file.name}"
