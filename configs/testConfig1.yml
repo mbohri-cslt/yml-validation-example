@@ -1,0 +1,13 @@
+service:
+  name: pancho
+  api:
+    git: abc:xxy
+  functions:
+    - name: one
+      git: abc/myfunction1
+      memoryInMbs: 400
+      cpu: 2
+    - name: two
+      git: abc/myfunction2
+      memoryInMbs: 800
+      cpu: 4

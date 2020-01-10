@@ -1,0 +1,99 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "service"
+  ],
+  "properties": {
+    "service": {
+      "$id": "#/properties/service",
+      "type": "object",
+      "title": "The Service Schema",
+      "required": [
+        "api",
+        "functions"
+      ],
+      "properties": {
+        "api": {
+          "$id": "#/properties/service/properties/api",
+          "type": "object",
+          "title": "The Api Schema",
+          "required": [
+            "git"
+          ],
+          "properties": {
+            "git": {
+              "$id": "#/properties/service/properties/api/properties/git",
+              "type": "string",
+              "title": "The Git Schema",
+              "default": "",
+              "examples": [
+                "abc:xxy"
+              ],
+              "pattern": "^(.*)$"
+            }
+          }
+        },
+        "functions": {
+          "$id": "#/properties/service/properties/functions",
+          "type": "array",
+          "title": "The Functions Schema",
+          "items": {
+            "$id": "#/properties/service/properties/functions/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "name",
+              "git",
+              "memoryInMbs",
+              "cpu"
+            ],
+            "properties": {
+              "name": {
+                "$id": "#/properties/service/properties/functions/items/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
+                "default": "",
+                "examples": [
+                  "one"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "git": {
+                "$id": "#/properties/service/properties/functions/items/properties/git",
+                "type": "string",
+                "title": "The Git Schema",
+                "default": "",
+                "examples": [
+                  "abc/myfunction1"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "memoryInMbs": {
+                "$id": "#/properties/service/properties/functions/items/properties/memoryInMbs",
+                "type": "integer",
+                "title": "The Memoryinmbs Schema",
+                "default": 0,
+                "examples": [
+                  400
+                ]
+              },
+              "cpu": {
+                "$id": "#/properties/service/properties/functions/items/properties/cpu",
+                "type": "integer",
+                "title": "The Cpu Schema",
+                "default": 0,
+                "examples": [
+                  2
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

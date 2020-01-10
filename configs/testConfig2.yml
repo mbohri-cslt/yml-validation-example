@@ -1,0 +1,7 @@
+service:
+  name: lefty
+  api:
+    git: abc:xy2
+  functions:
+    - name: one
+      git: abc/myfunction3

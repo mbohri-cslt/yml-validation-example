@@ -1,0 +1,4 @@
+app-type: cron-groovy
+name: cosmos-service-configs
+org: cosmos
+team-email: clin@netflix.com
